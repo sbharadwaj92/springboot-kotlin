@@ -7,6 +7,10 @@ Spring boot using Kotlin - Rest API using JPA/HIbernate with h2 as database
 4. h2 database 
 
 ## How to run this application
+
+### Run from terminal  ```mvn clean compile spring-boot:run```
+
+### Run from Intellij IDEA 
 1. Open Run/Debug Configurations
 2. Add the complete class ``` com.example.springbootkotlin.SpringbootKotlinApplicationKt ``` in the main class.
 3. Check Single instance only checkbox top right corner. 
