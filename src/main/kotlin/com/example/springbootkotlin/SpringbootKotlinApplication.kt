@@ -2,21 +2,26 @@ package com.example.springbootkotlin
 
 import com.example.springbootkotlin.domain.Person
 import com.example.springbootkotlin.repo.PersonRepo
-import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.web.support.SpringBootServletInitializer
+import org.springframework.boot.builder.SpringApplicationBuilder
+
 
 @SpringBootApplication
-class SpringbootKotlinApplication(val personRepo: PersonRepo) : CommandLineRunner {
+class SpringbootKotlinApplication : SpringBootServletInitializer() {
 
-    override fun run(vararg args: String?) {
-        personRepo.save(Person("sagar", "rout"))
-        personRepo.save(Person("mohit", "singh"))
-        personRepo.save(Person("rahul", "singh"))
-        personRepo.save(Person("rajat", "sharma"))
+    override fun configure(application: SpringApplicationBuilder): SpringApplicationBuilder {
+        return application.sources(SpringbootKotlinApplication::class.java)
     }
-}
 
-fun main(args: Array<String>) {
-    SpringApplication.run(SpringbootKotlinApplication::class.java, *args)
+    companion object {
+
+        @Throws(Exception::class)
+        @JvmStatic
+        fun main(args: Array<String>) {
+            SpringApplication.run(SpringbootKotlinApplication::class.java, *args)
+        }
+    }
+
 }
